@@ -1037,6 +1037,7 @@ table.order-details tbody td {
 /*** Pet Information ***/
 
 .pet-info {
+  width: 450px;
   padding: 30px;
   margin: auto;
   background-color: #c2bcd9;
@@ -1057,6 +1058,7 @@ table.order-details tbody td {
 
 /*** Profile ***/
 .profile {
+  width: 400px;
   padding: 30px;
   margin: auto;
   background-color: #c2bcd9;
