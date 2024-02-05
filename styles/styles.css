@@ -577,6 +577,7 @@ p.product-price span {
 
 a.cart-btn {
   font-family: "Poppins", sans-serif;
+  text-decoration: none;
   display: inline-block;
   background-color: #f28123;
   color: #fff;
@@ -872,6 +873,7 @@ tr.total-data td strong {
 
 .cart-buttons {
   margin-top: 30px;
+  text-decoration: none;
 }
 
 .cart-buttons a:first-child {
@@ -1031,3 +1033,38 @@ table.order-details tbody td {
   text-decoration: none;
 }
 /*** copyright end ***/
+
+/*** Pet Information ***/
+
+.pet-info {
+  padding: 30px;
+  margin: auto;
+  background-color: #c2bcd9;
+  border-radius: 3px;
+}
+.pet-info input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+.pet-info select {
+  width: 100%;
+  padding: 12px 20px;
+}
+
+/*** Pet Information **/
+
+/*** Profile ***/
+.profile {
+  padding: 30px;
+  margin: auto;
+  background-color: #c2bcd9;
+  border-radius: 3px;
+}
+.profile input[type="text"] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+/*** Profile ***/
