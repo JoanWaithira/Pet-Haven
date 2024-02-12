@@ -733,10 +733,17 @@ ul.product-share li a {
   }
 }
 
+.row {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
 /* Additional styles for filtered items */
 .filtered {
-  /* animation: moveInLeft 0.5s forwards; */
-  align-items: first baseline;
+  margin-bottom: 15px;
 }
 
 @keyframes moveInLeft {
