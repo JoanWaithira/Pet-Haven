@@ -18,6 +18,16 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
@@ -50,20 +60,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
-          <a href="index.html" class="nav-item nav-link active">Home</a>
+          <a href="index.html" class="nav-item nav-link">Home</a>
           <a href="about.html" class="nav-item nav-link">About</a>
-          <!-- <a href="service.html" class="nav-item nav-link">Service</a> -->
-          <!-- <a href="product.html" class="nav-item nav-link">Product</a> -->
-          <a href="./login.html" class="nav-item nav-link">Sign In</a>
+          <a href="login.html" class="nav-item nav-link">Sign In</a>
           <div class="nav-item dropdown">
             <a
               href="#"
-              class="nav-link dropdown-toggle"
+              class="nav-link dropdown-toggle active"
               data-bs-toggle="dropdown"
               >Pages</a
             >
             <div class="dropdown-menu m-0">
-              <a href="price.html" class="dropdown-item">Pricing Plan</a>
               <a href="team.html" class="dropdown-item">The Team</a>
               <a href="testimonial.html" class="dropdown-item">Testimonial</a>
               <a href="blog.html" class="dropdown-item">Blog Grid</a>
@@ -81,7 +88,6 @@
               <a href="shop.html" class="dropdown-item">Shop</a>
               <a href="cart.html" class="dropdown-item">Cart</a>
               <a href="checkout.html" class="dropdown-item">Checkout</a>
-
               <a href="404.html" class="dropdown-item">404 Page</a>
             </div>
           </div>
@@ -94,6 +100,7 @@
         </div>
       </div>
     </nav>
+
     <!-- Navbar End -->
 
     <!-- Modal Search Start -->
@@ -162,141 +169,204 @@
     </div>
     <!-- Hero End -->
     <!-- Testimonial Start -->
-    <div
-      class="container-fluid testimonial py-5"
-      style="background: var(--bs-secondary)"
-    >
-      <div class="container py-5">
-        <div class="text-center mx-auto mb-5" style="max-width: 500px">
-          <p class="fs-4 text-uppercase text-primary">Testimonial</p>
-          <h1 class="display-4 mb-4 text-white">What Our Clients Say!</h1>
+    <div class="container py-5">
+      <div class="text-center mx-auto mb-5" style="max-width: 800px">
+        <p class="fs-4 text-uppercase text-primary">Pet Haven's Team</p>
+        <h1 class="display-4 mb-4">Testimonials</h1>
+      </div>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for carousel items -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="img-box img-fluid">
+              <img src="images/kids and rabbits.jpg" alt="" />
+            </div>
+            <p class="testimonial">
+              You guys rock!! My kids really love the pet rabbits and I'm
+              looking into getting them more rabbits. <br />
+              They are also learning responsibility. Thank you Pet haven.
+            </p>
+            <p class="overview">
+              <b>Michael Holz</b>Seo Analyst at <a href="#">OsCorp Tech.</a>
+            </p>
+            <div class="star-rating">
+              <ul class="list-inline">
+                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+              </ul>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="img-box">
+              <img src="./images/about.jpg" alt="" />
+            </div>
+            <p class="testimonial">
+              I really love my dogs. They have been my companions and have
+              helped me battle depression. <br />
+              Thank you pet haven for my furry best friends
+            </p>
+            <p class="overview">
+              <b>Paula Wilson</b>Media Analyst at <a href="#">SkyNet Inc.</a>
+            </p>
+            <div class="star-rating">
+              <ul class="list-inline">
+                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+              </ul>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="img-box">
+              <img src="./images/catss.jpg" alt="" />
+            </div>
+            <p class="testimonial">
+              Pet haven gave me the healthiest cats. I am not as lonely as I
+              used to be. I have company in my pets <br />
+              Pet haven even keeps checking up on my pets and offering any
+              support I may need.
+            </p>
+            <p class="overview">
+              <b>Antonio Moreno</b>Web Developer at <a href="#">Circle Ltd.</a>
+            </p>
+            <div class="star-rating">
+              <ul class="list-inline">
+                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                <li class="list-inline-item">
+                  <i class="fa fa-star-half-o"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="owl-carousel testimonial-carousel">
-          <div class="testimonial-item rounded p-4">
-            <div class="row">
-              <div class="col-4">
-                <div class="d-flex flex-column mx-auto">
-                  <div
-                    class="rounded-circle mb-4"
-                    style="border: dashed; border-color: var(--bs-white)"
-                  >
-                    <img
-                      src="images/about.jpg"
-                      class="img-fluid rounded-circle img-thumbnail"
-                      alt=""
-                    />
-                  </div>
-                  <div class="text-center">
-                    <h4 class="mb-2 text-primary">Alice Maurice</h4>
-                  </div>
-                </div>
+        <!-- Carousel controls -->
+        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+          <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </div>
+    </div>
+    <!-- Testimonial End -->
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+      <div class="container py-5">
+        <div
+          class="pb-4 mb-4"
+          style="border-bottom: 1px solid rgba(226, 175, 24, 0.5)"
+        >
+          <div class="row g-4 footer">
+            <div class="col-lg-3">
+              <a href="index.html">
+                <h1 class="text-primary mb-0">Pet Haven</h1>
+                <p class="text-secondary mb-0">We love Animals</p>
+              </a>
+            </div>
+            <div class="col-lg-6">
+              <div class="position-relative mx-auto">
+                <input
+                  class="form-control border-0 w-100 py-3 px-4 rounded-pill"
+                  type="email"
+                  placeholder="Your Email"
+                />
+                <button
+                  type="submit"
+                  class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white"
+                  style="top: 0; right: 0"
+                >
+                  Subscribe Now
+                </button>
               </div>
-              <div class="col-8">
-                <div class="position-absolute" style="top: 20px; right: 25px">
-                  <i class="fa fa-quote-right fa-2x text-secondary"></i>
-                </div>
-                <div class="testimonial-content">
-                  <div class="d-flex mb-4">
-                    <i class="fas fa-star text-primary"></i>
-                    <i class="fas fa-star text-primary"></i>
-                    <i class="fas fa-star text-primary"></i>
-                    <i class="fas fa-star text-primary"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <p class="fs-5 mb-0 text-white">
-                    I really love my dogs. They have been my companions and have
-                    helped me battle depression. <br />
-                    Thank you pet haven for my furry best friends
-                  </p>
-                </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="d-flex justify-content-end pt-3">
+                <a
+                  class="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                  href="https://www.twitter.com"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a
+                  class="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                  href="https://www.facebook.com"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  class="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                  href="https://www.youtube.com"
+                  ><i class="fab fa-youtube"></i
+                ></a>
+                <a
+                  class="btn btn-outline-secondary btn-md-square rounded-circle"
+                  href="https://www.linkedin.com"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
               </div>
             </div>
           </div>
-          <div class="testimonial-item rounded p-4">
-            <div class="row">
-              <div class="col-4">
-                <div class="d-flex flex-column mx-auto">
-                  <div
-                    class="rounded-circle mb-4"
-                    style="border: dashed; border-color: var(--bs-white)"
-                  >
-                    <img
-                      src="images/woman with cats.jpg"
-                      class="img-fluid rounded-circle img-thumbnail"
-                      alt=""
-                    />
-                  </div>
-                  <div class="text-center">
-                    <h4 class="mb-2 text-primary">Claire Rumina</h4>
-                  </div>
-                </div>
-              </div>
-              <div class="col-8">
-                <div class="position-absolute" style="top: 20px; right: 25px">
-                  <i class="fa fa-quote-right fa-2x text-secondary"></i>
-                </div>
-                <div class="testimonial-content">
-                  <div class="d-flex mb-4">
-                    <i class="fas fa-star text-primary"></i>
-                    <i class="fas fa-star text-primary"></i>
-                    <i class="fas fa-star text-primary"></i>
-                    <i class="fas fa-star text-primary"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <p class="fs-5 mb-0 text-white">
-                    Pet haven gave me the healthiest cats. I am not as lonely as
-                    I used to be. I have company in my pets <br />
-                    Pet haven even keeps checking up on my pets and offering any
-                    support I may need.
-                  </p>
-                </div>
-              </div>
+        </div>
+        <div class="row g-5">
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-item">
+              <h4 class="text-light mb-3">Why People Like us!</h4>
+              <p class="mb-4">We are the best</p>
+              <a
+                href=""
+                class="btn border-secondary py-2 px-4 rounded-pill text-primary"
+                >Read More</a
+              >
             </div>
           </div>
-          <div class="testimonial-item rounded p-4">
-            <div class="row">
-              <div class="col-4">
-                <div class="d-flex flex-column mx-auto">
-                  <div
-                    class="rounded-circle mb-4"
-                    style="border: dashed; border-color: var(--bs-white)"
-                  >
-                    <img
-                      src="images/kids and rabbits.jpg"
-                      class="img-fluid rounded-circle img-thumbnail"
-                      alt=""
-                    />
-                  </div>
-                  <div class="text-center">
-                    <h4 class="mb-2 text-primary">Maxwell Feather</h4>
-                  </div>
-                </div>
-              </div>
-              <div class="col-8">
-                <div class="position-absolute" style="top: 20px; right: 25px">
-                  <i class="fa fa-quote-right fa-2x text-secondary"></i>
-                </div>
-                <div class="testimonial-content">
-                  <div class="d-flex mb-4">
-                    <i class="fas fa-star text-primary"></i>
-                    <i class="fas fa-star text-primary"></i>
-                    <i class="fas fa-star text-primary"></i>
-                    <i class="fas fa-star text-primary"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <p class="fs-5 mb-0 text-white">
-                    You guys rock!! My kids really love the pet rabbits and I'm
-                    looking into getting them more rabbits. <br />
-                    They are also learning responsibility. Thank you Pet haven.
-                  </p>
-                </div>
-              </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="d-flex flex-column text-start footer-item">
+              <h4 class="text-light mb-3">Shop Info</h4>
+              <a class="btn-link" href="./about.html">About Us</a>
+              <a class="btn-link" href="">Contact Us</a>
+              <a class="btn-link" href=".terms.html">Privacy Policy</a>
+              <a class="btn-link" href="./terms.html">Terms & Condition</a>
+              <!-- <a class="btn-link" href="">Return Policy</a>
+              <a class="btn-link" href="">FAQs & Help</a> -->
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="d-flex flex-column text-start footer-item">
+              <h4 class="text-light mb-3">Account</h4>
+              <a class="btn-link" href="./profile.html">My Account</a>
+              <a class="btn-link" href="./shop.html">Shop details</a>
+              <a class="btn-link" href="./cart.html">Shopping Cart</a>
+              <a class="btn-link" href="">Wishlist</a>
+              <!-- <a class="btn-link" href="">Order History</a>
+              <a class="btn-link" href="">International Orders</a> -->
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-item">
+              <h4 class="text-light mb-3">Contact</h4>
+              <p>Address: Nairobi, Kenya</p>
+              <p>Email: pethaven@gmail.com</p>
+              <p>Phone: +254727283082</p>
+              <p>Payment Accepted</p>
+              <img src="img/payment.png" class="img-fluid" alt="" />
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Testimonial End -->
+    <!-- Footer End -->
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -309,6 +379,16 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <!-- Bootstrap Bundle with Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="script/main.js"></script>

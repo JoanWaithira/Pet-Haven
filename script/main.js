@@ -54,501 +54,142 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //Cart and Checkout
 
-(function ($) {
-  "use strict";
+let label = document.getElementById("label");
+let ShoppingCart = document.getElementById("shopping-cart");
 
-  $(document).ready(function ($) {
-    // testimonial sliders
-    $(".testimonial-sliders").owlCarousel({
-      items: 1,
-      loop: true,
-      autoplay: true,
-      responsive: {
-        0: {
-          items: 1,
-          nav: false,
-        },
-        600: {
-          items: 1,
-          nav: false,
-        },
-        1000: {
-          items: 1,
-          nav: false,
-          loop: true,
-        },
-      },
-    });
+let basket = JSON.parse(localStorage.getItem("data")) || [];
 
-    // homepage slider
-    $(".homepage-slider").owlCarousel({
-      items: 1,
-      loop: true,
-      autoplay: true,
-      nav: true,
-      dots: false,
-      navText: [
-        '<i class="fas fa-angle-left"></i>',
-        '<i class="fas fa-angle-right"></i>',
-      ],
-      responsive: {
-        0: {
-          items: 1,
-          nav: false,
-          loop: true,
-        },
-        600: {
-          items: 1,
-          nav: true,
-          loop: true,
-        },
-        1000: {
-          items: 1,
-          nav: true,
-          loop: true,
-        },
-      },
-    });
+let calculation = () => {
+  let cartIcon = document.getElementById("cartAmount");
+  cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+};
 
-    // logo carousel
-    $(".logo-carousel-inner").owlCarousel({
-      items: 4,
-      loop: true,
-      autoplay: true,
-      margin: 30,
-      responsive: {
-        0: {
-          items: 1,
-          nav: false,
-        },
-        600: {
-          items: 3,
-          nav: false,
-        },
-        1000: {
-          items: 4,
-          nav: false,
-          loop: true,
-        },
-      },
-    });
+calculation();
 
-    // count down
-    if ($(".time-countdown").length) {
-      $(".time-countdown").each(function () {
-        var $this = $(this),
-          finalDate = $(this).data("countdown");
-        $this.countdown(finalDate, function (event) {
-          var $this = $(this).html(
-            event.strftime(
-              "" +
-                '<div class="counter-column"><div class="inner"><span class="count">%D</span>Days</div></div> ' +
-                '<div class="counter-column"><div class="inner"><span class="count">%H</span>Hours</div></div>  ' +
-                '<div class="counter-column"><div class="inner"><span class="count">%M</span>Mins</div></div>  ' +
-                '<div class="counter-column"><div class="inner"><span class="count">%S</span>Secs</div></div>'
-            )
-          );
-        });
-      });
-    }
+let generateCartItems = () => {
+  if (basket.length !== 0) {
+    return (ShoppingCart.innerHTML = basket
+      .map((x) => {
+        let { id, item } = x;
+        let search = shopItemsData.find((y) => y.id === id) || [];
+        return `
+      <div class="cart-item">
+        <img width="100" src=${search.img} alt="" />
+        <div class="details">
 
-    // projects filters isotop
-    $(".product-filters li").on("click", function () {
-      $(".product-filters li").removeClass("active");
-      $(this).addClass("active");
+          <div class="title-price-x">
+              <h4 class="title-price">
+                <p>${search.name}</p>
+                <p class="cart-item-price">$ ${search.price}</p>
+              </h4>
+              <i onclick="removeItem(${id})" class="bi bi-x-lg"></i>
+          </div>
 
-      var selector = $(this).attr("data-filter");
+          <div class="buttons">
+              <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
+              <div id=${id} class="quantity">${item}</div>
+              <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
+          </div>
 
-      $(".product-lists").isotope({
-        filter: selector,
-      });
-    });
-
-    // isotop inner
-    $(".product-lists").isotope();
-
-    // magnific popup
-    $(".popup-youtube").magnificPopup({
-      disableOn: 700,
-      type: "iframe",
-      mainClass: "mfp-fade",
-      removalDelay: 160,
-      preloader: false,
-      fixedContentPos: false,
-    });
-
-    // light box
-    $(".image-popup-vertical-fit").magnificPopup({
-      type: "image",
-      closeOnContentClick: true,
-      mainClass: "mfp-img-mobile",
-      image: {
-        verticalFit: true,
-      },
-    });
-
-    // homepage slides animations
-    $(".homepage-slider").on("translate.owl.carousel", function () {
-      $(".hero-text-tablecell .subtitle")
-        .removeClass("animated fadeInUp")
-        .css({ opacity: "0" });
-      $(".hero-text-tablecell h1")
-        .removeClass("animated fadeInUp")
-        .css({ opacity: "0", "animation-delay": "0.3s" });
-      $(".hero-btns")
-        .removeClass("animated fadeInUp")
-        .css({ opacity: "0", "animation-delay": "0.5s" });
-    });
-
-    $(".homepage-slider").on("translated.owl.carousel", function () {
-      $(".hero-text-tablecell .subtitle")
-        .addClass("animated fadeInUp")
-        .css({ opacity: "0" });
-      $(".hero-text-tablecell h1")
-        .addClass("animated fadeInUp")
-        .css({ opacity: "0", "animation-delay": "0.3s" });
-      $(".hero-btns")
-        .addClass("animated fadeInUp")
-        .css({ opacity: "0", "animation-delay": "0.5s" });
-    });
-
-    // stikcy js
-    $("#sticker").sticky({
-      topSpacing: 0,
-    });
-
-    //mean menu
-    $(".main-menu").meanmenu({
-      meanMenuContainer: ".mobile-menu",
-      meanScreenWidth: "992",
-    });
-
-    // search form
-    $(".search-bar-icon").on("click", function () {
-      $(".search-area").addClass("search-active");
-    });
-
-    $(".close-btn").on("click", function () {
-      $(".search-area").removeClass("search-active");
-    });
-  });
-
-  jQuery(window).on("load", function () {
-    jQuery(".loader").fadeOut(1000);
-  });
-})(jQuery);
-
-//Sticker
-(function (factory) {
-  if (typeof define === "function" && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(["jquery"], factory);
-  } else if (typeof module === "object" && module.exports) {
-    // Node/CommonJS
-    module.exports = factory(require("jquery"));
+          <h3>$ ${item * search.price}</h3>
+        </div>
+      </div>
+      `;
+      })
+      .join(""));
   } else {
-    // Browser globals
-    factory(jQuery);
+    ShoppingCart.innerHTML = ``;
+    label.innerHTML = `
+    <h2>Cart is Empty</h2>
+    <a href="index.html">
+      <button class="HomeBtn">Back to home</button>
+    </a>
+    `;
   }
-})(function ($) {
-  var slice = Array.prototype.slice; // save ref to original slice()
-  var splice = Array.prototype.splice; // save ref to original slice()
+};
 
-  var defaults = {
-      topSpacing: 0,
-      bottomSpacing: 0,
-      className: "is-sticky",
-      wrapperClassName: "sticky-wrapper",
-      center: false,
-      getWidthFrom: "",
-      widthFromWrapper: true, // works only when .getWidthFrom is empty
-      responsiveWidth: false,
-      zIndex: "inherit",
-    },
-    $window = $(window),
-    $document = $(document),
-    sticked = [],
-    windowHeight = $window.height(),
-    scroller = function () {
-      var scrollTop = $window.scrollTop(),
-        documentHeight = $document.height(),
-        dwh = documentHeight - windowHeight,
-        extra = scrollTop > dwh ? dwh - scrollTop : 0;
+generateCartItems();
 
-      for (var i = 0, l = sticked.length; i < l; i++) {
-        var s = sticked[i],
-          elementTop = s.stickyWrapper.offset().top,
-          etse = elementTop - s.topSpacing - extra;
+let increment = (id) => {
+  let selectedItem = id;
+  let search = basket.find((x) => x.id === selectedItem.id);
 
-        //update height in case of dynamic content
-        s.stickyWrapper.css("height", s.stickyElement.outerHeight());
-
-        if (scrollTop <= etse) {
-          if (s.currentTop !== null) {
-            s.stickyElement.css({
-              width: "",
-              position: "",
-              top: "",
-              "z-index": "",
-            });
-            s.stickyElement.parent().removeClass(s.className);
-            s.stickyElement.trigger("sticky-end", [s]);
-            s.currentTop = null;
-          }
-        } else {
-          var newTop =
-            documentHeight -
-            s.stickyElement.outerHeight() -
-            s.topSpacing -
-            s.bottomSpacing -
-            scrollTop -
-            extra;
-          if (newTop < 0) {
-            newTop = newTop + s.topSpacing;
-          } else {
-            newTop = s.topSpacing;
-          }
-          if (s.currentTop !== newTop) {
-            var newWidth;
-            if (s.getWidthFrom) {
-              padding = s.stickyElement.innerWidth() - s.stickyElement.width();
-              newWidth = $(s.getWidthFrom).width() - padding || null;
-            } else if (s.widthFromWrapper) {
-              newWidth = s.stickyWrapper.width();
-            }
-            if (newWidth == null) {
-              newWidth = s.stickyElement.width();
-            }
-            s.stickyElement
-              .css("width", newWidth)
-              .css("position", "fixed")
-              .css("top", newTop)
-              .css("z-index", s.zIndex);
-
-            s.stickyElement.parent().addClass(s.className);
-
-            if (s.currentTop === null) {
-              s.stickyElement.trigger("sticky-start", [s]);
-            } else {
-              // sticky is started but it have to be repositioned
-              s.stickyElement.trigger("sticky-update", [s]);
-            }
-
-            if (
-              (s.currentTop === s.topSpacing && s.currentTop > newTop) ||
-              (s.currentTop === null && newTop < s.topSpacing)
-            ) {
-              // just reached bottom || just started to stick but bottom is already reached
-              s.stickyElement.trigger("sticky-bottom-reached", [s]);
-            } else if (
-              s.currentTop !== null &&
-              newTop === s.topSpacing &&
-              s.currentTop < newTop
-            ) {
-              // sticky is started && sticked at topSpacing && overflowing from top just finished
-              s.stickyElement.trigger("sticky-bottom-unreached", [s]);
-            }
-
-            s.currentTop = newTop;
-          }
-
-          // Check if sticky has reached end of container and stop sticking
-          var stickyWrapperContainer = s.stickyWrapper.parent();
-          var unstick =
-            s.stickyElement.offset().top + s.stickyElement.outerHeight() >=
-              stickyWrapperContainer.offset().top +
-                stickyWrapperContainer.outerHeight() &&
-            s.stickyElement.offset().top <= s.topSpacing;
-
-          if (unstick) {
-            s.stickyElement
-              .css("position", "absolute")
-              .css("top", "")
-              .css("bottom", 0)
-              .css("z-index", "");
-          } else {
-            s.stickyElement
-              .css("position", "fixed")
-              .css("top", newTop)
-              .css("bottom", "")
-              .css("z-index", s.zIndex);
-          }
-        }
-      }
-    },
-    resizer = function () {
-      windowHeight = $window.height();
-
-      for (var i = 0, l = sticked.length; i < l; i++) {
-        var s = sticked[i];
-        var newWidth = null;
-        if (s.getWidthFrom) {
-          if (s.responsiveWidth) {
-            newWidth = $(s.getWidthFrom).width();
-          }
-        } else if (s.widthFromWrapper) {
-          newWidth = s.stickyWrapper.width();
-        }
-        if (newWidth != null) {
-          s.stickyElement.css("width", newWidth);
-        }
-      }
-    },
-    methods = {
-      init: function (options) {
-        return this.each(function () {
-          var o = $.extend({}, defaults, options);
-          var stickyElement = $(this);
-
-          var stickyId = stickyElement.attr("id");
-          var wrapperId = stickyId
-            ? stickyId + "-" + defaults.wrapperClassName
-            : defaults.wrapperClassName;
-          var wrapper = $("<div></div>")
-            .attr("id", wrapperId)
-            .addClass(o.wrapperClassName);
-
-          stickyElement.wrapAll(function () {
-            if ($(this).parent("#" + wrapperId).length == 0) {
-              return wrapper;
-            }
-          });
-
-          var stickyWrapper = stickyElement.parent();
-
-          if (o.center) {
-            stickyWrapper.css({
-              width: stickyElement.outerWidth(),
-              marginLeft: "auto",
-              marginRight: "auto",
-            });
-          }
-
-          if (stickyElement.css("float") === "right") {
-            stickyElement
-              .css({ float: "none" })
-              .parent()
-              .css({ float: "right" });
-          }
-
-          o.stickyElement = stickyElement;
-          o.stickyWrapper = stickyWrapper;
-          o.currentTop = null;
-
-          sticked.push(o);
-
-          methods.setWrapperHeight(this);
-          methods.setupChangeListeners(this);
-        });
-      },
-
-      setWrapperHeight: function (stickyElement) {
-        var element = $(stickyElement);
-        var stickyWrapper = element.parent();
-        if (stickyWrapper) {
-          stickyWrapper.css("height", element.outerHeight());
-        }
-      },
-
-      setupChangeListeners: function (stickyElement) {
-        if (window.MutationObserver) {
-          var mutationObserver = new window.MutationObserver(function (
-            mutations
-          ) {
-            if (
-              mutations[0].addedNodes.length ||
-              mutations[0].removedNodes.length
-            ) {
-              methods.setWrapperHeight(stickyElement);
-            }
-          });
-          mutationObserver.observe(stickyElement, {
-            subtree: true,
-            childList: true,
-          });
-        } else {
-          if (window.addEventListener) {
-            stickyElement.addEventListener(
-              "DOMNodeInserted",
-              function () {
-                methods.setWrapperHeight(stickyElement);
-              },
-              false
-            );
-            stickyElement.addEventListener(
-              "DOMNodeRemoved",
-              function () {
-                methods.setWrapperHeight(stickyElement);
-              },
-              false
-            );
-          } else if (window.attachEvent) {
-            stickyElement.attachEvent("onDOMNodeInserted", function () {
-              methods.setWrapperHeight(stickyElement);
-            });
-            stickyElement.attachEvent("onDOMNodeRemoved", function () {
-              methods.setWrapperHeight(stickyElement);
-            });
-          }
-        }
-      },
-      update: scroller,
-      unstick: function (options) {
-        return this.each(function () {
-          var that = this;
-          var unstickyElement = $(that);
-
-          var removeIdx = -1;
-          var i = sticked.length;
-          while (i-- > 0) {
-            if (sticked[i].stickyElement.get(0) === that) {
-              splice.call(sticked, i, 1);
-              removeIdx = i;
-            }
-          }
-          if (removeIdx !== -1) {
-            unstickyElement.unwrap();
-            unstickyElement.css({
-              width: "",
-              position: "",
-              top: "",
-              float: "",
-              "z-index": "",
-            });
-          }
-        });
-      },
-    };
-
-  // should be more efficient than using $window.scroll(scroller) and $window.resize(resizer):
-  if (window.addEventListener) {
-    window.addEventListener("scroll", scroller, false);
-    window.addEventListener("resize", resizer, false);
-  } else if (window.attachEvent) {
-    window.attachEvent("onscroll", scroller);
-    window.attachEvent("onresize", resizer);
+  if (search === undefined) {
+    basket.push({
+      id: selectedItem.id,
+      item: 1,
+    });
+  } else {
+    search.item += 1;
   }
 
-  $.fn.sticky = function (method) {
-    if (methods[method]) {
-      return methods[method].apply(this, slice.call(arguments, 1));
-    } else if (typeof method === "object" || !method) {
-      return methods.init.apply(this, arguments);
-    } else {
-      $.error("Method " + method + " does not exist on jQuery.sticky");
-    }
-  };
+  generateCartItems();
+  update(selectedItem.id);
+  localStorage.setItem("data", JSON.stringify(basket));
+};
+let decrement = (id) => {
+  let selectedItem = id;
+  let search = basket.find((x) => x.id === selectedItem.id);
 
-  $.fn.unstick = function (method) {
-    if (methods[method]) {
-      return methods[method].apply(this, slice.call(arguments, 1));
-    } else if (typeof method === "object" || !method) {
-      return methods.unstick.apply(this, arguments);
-    } else {
-      $.error("Method " + method + " does not exist on jQuery.sticky");
-    }
-  };
-  $(function () {
-    setTimeout(scroller, 0);
-  });
+  if (search === undefined) return;
+  else if (search.item === 0) return;
+  else {
+    search.item -= 1;
+  }
+  update(selectedItem.id);
+  basket = basket.filter((x) => x.item !== 0);
+  generateCartItems();
+  localStorage.setItem("data", JSON.stringify(basket));
+};
+
+let update = (id) => {
+  let search = basket.find((x) => x.id === id);
+  // console.log(search.item);
+  document.getElementById(id).innerHTML = search.item;
+  calculation();
+  TotalAmount();
+};
+
+let removeItem = (id) => {
+  let selectedItem = id;
+  // console.log(selectedItem.id);
+  basket = basket.filter((x) => x.id !== selectedItem.id);
+  generateCartItems();
+  TotalAmount();
+  localStorage.setItem("data", JSON.stringify(basket));
+};
+
+let clearCart = () => {
+  basket = [];
+  generateCartItems();
+  localStorage.setItem("data", JSON.stringify(basket));
+};
+
+let TotalAmount = () => {
+  if (basket.length !== 0) {
+    let amount = basket
+      .map((x) => {
+        let { item, id } = x;
+        let search = shopItemsData.find((y) => y.id === id) || [];
+
+        return item * search.price;
+      })
+      .reduce((x, y) => x + y, 0);
+    // console.log(amount);
+    label.innerHTML = `
+    <h2>Total Bill : $ ${amount}</h2>
+    <button class="checkout">Checkout</button>
+    <button onclick="clearCart()" class="removeAll">Clear Cart</button>
+    `;
+  } else return;
+};
+
+TotalAmount();
+
+//Carousel
+const myCarouselElement = document.querySelector("#myCarousel");
+
+const carousel = new bootstrap.Carousel(myCarouselElement, {
+  interval: 2000,
+  touch: false,
 });

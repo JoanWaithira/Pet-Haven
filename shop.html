@@ -18,6 +18,16 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
@@ -50,7 +60,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
-          <a href="index.html" class="nav-item nav-link active">Home</a>
+          <a href="index.html" class="nav-item nav-link">Home</a>
           <a href="about.html" class="nav-item nav-link">About</a>
           <!-- <a href="service.html" class="nav-item nav-link">Service</a> -->
           <!-- <a href="product.html" class="nav-item nav-link">Product</a> -->
@@ -73,7 +83,7 @@
           <div class="nav-item dropdown">
             <a
               href="shop.html"
-              class="nav-link dropdown-toggle"
+              class="nav-link dropdown-toggle active"
               data-bs-toggle="dropdown"
               >Shop</a
             >
@@ -168,121 +178,127 @@
             <div class="product-filters">
               <ul>
                 <li class="active" data-filter="*">All</li>
-                <li data-filter=".strawberry">Dogs</li>
-                <li data-filter=".berry">Cats</li>
-                <li data-filter=".lemon">Birds</li>
-                <li data-filter=".lemon">Rabbits</li>
+                <li data-filter="dog">Dogs</li>
+                <li data-filter="cat">Cats</li>
+                <li data-filter="bird">Birds</li>
+                <li data-filter="rabbit">Rabbits</li>
               </ul>
             </div>
           </div>
         </div>
 
         <div class="row product-lists">
-          <div class="col-lg-4 col-md-6 text-center strawberry">
-            <div class="single-product-item">
+          <div class="col-lg-4 col-md-6 text-center dog" data-filter="dog">
+            <div class="single-product-item dog">
               <div class="product-image">
-                <a href="single-product.html"
-                  ><img src="./images/cart_dog.jpg" alt=""
-                /></a>
+                <a href="single-product.html">
+                  <img src="./images/cart_dog.jpg" alt="" />
+                </a>
               </div>
               <h3>Dog</h3>
-              <a href="single-product.html" class="btn"
-                ><i class="btn btn-primary"></i> View Pet Information</a
+              <a href="single-product.html" class="btn">
+                <i class="btn btn-primary"></i> View Pet Information</a
               >
               <br />
-              <a href="cart.html" class="cart-btn"
-                ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+              <a href="cart.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart</a
               >
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 text-center berry">
-            <div class="single-product-item">
+          <div class="col-lg-4 col-md-6 text-center cat" data-filter="cat">
+            <div class="single-product-item cat">
               <div class="product-image">
-                <a href="single-product.html"
-                  ><img src="./images/cart cat.jpg" alt=""
-                /></a>
+                <a href="single-product.html">
+                  <img src="./images/cart cat.jpg" alt="" />
+                </a>
               </div>
               <h3>Cat</h3>
-              <a href="single-product.html" class="btn"
-                ><i class="btn btn-primary"></i> View Pet Information</a
+              <a href="single-product.html" class="btn">
+                <i class="btn btn-primary"></i> View Pet Information</a
               >
               <br />
-              <a href="cart.html" class="cart-btn"
-                ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+              <a href="cart.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart</a
               >
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 text-center lemon">
-            <div class="single-product-item">
+          <div
+            class="col-lg-4 col-md-6 text-center rabbit"
+            data-filter="rabbit"
+          >
+            <div class="single-product-item rabbit">
               <div class="product-image">
-                <a href="single-product.html"
-                  ><img src="./images/cart rabb.jpg" alt=""
-                /></a>
+                <a href="single-product.html">
+                  <img src="./images/cart rabb.jpg" alt="" />
+                </a>
               </div>
               <h3>Rabbit</h3>
-              <a href="single-product.html" class="btn"
-                ><i class="btn btn-primary"></i> View Pet Information</a
+              <a href="single-product.html" class="btn">
+                <i class="btn btn-primary"></i> View Pet Information</a
               >
               <br />
-              <a href="cart.html" class="cart-btn"
-                ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+              <a href="cart.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart</a
               >
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 text-center">
-            <div class="single-product-item">
+          <div class="col-lg-4 col-md-6 text-center dog" data-filter="dog">
+            <div class="single-product-item dog">
               <div class="product-image">
-                <a href="single-product.html"
-                  ><img src="./images/blog-2.jpg" alt=""
-                /></a>
+                <a href="single-product.html">
+                  <img src="./images/blog-2.jpg" alt="" />
+                </a>
               </div>
               <h3>Dog</h3>
-              <a href="single-product.html" class="btn"
-                ><i class="btn btn-primary"></i> View Pet Information</a
+              <a href="single-product.html" class="btn">
+                <i class="btn btn-primary"></i> View Pet Information</a
               >
               <br />
-              <a href="cart.html" class="cart-btn"
-                ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+              <a href="cart.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart</a
               >
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 text-center">
-            <div class="single-product-item">
+          <div class="col-lg-4 col-md-6 text-center bird" data-filter="bird">
+            <div class="single-product-item bird">
               <div class="product-image">
-                <a href="single-product.html"
-                  ><img src="./images/cart bird.jpg" alt=""
-                /></a>
+                <a href="single-product.html">
+                  <img src="./images/cart bird.jpg" alt="" />
+                </a>
               </div>
               <h3>Bird</h3>
-              <a href="single-product.html" class="btn"
-                ><i class="btn btn-primary"></i> View Pet Information</a
+              <a href="single-product.html" class="btn">
+                <i class="btn btn-primary"></i> View Pet Information</a
               >
               <br />
-              <a href="cart.html" class="cart-btn"
-                ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+              <a href="cart.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart</a
               >
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 text-center strawberry">
-            <div class="single-product-item">
+          <div class="col-lg-4 col-md-6 text-center cat" data-filter="cat">
+            <div class="single-product-item cat">
               <div class="product-image">
-                <a href="single-product.html"
-                  ><img src="./images/price-3.jpg" alt=""
-                /></a>
+                <a href="single-product.html">
+                  <img src="./images/price-3.jpg" alt="" />
+                </a>
               </div>
               <h3>Cat</h3>
-              <a href="single-product.html" class="btn"
-                ><i class="btn btn-primary"></i> View Pet Information</a
+              <a href="single-product.html" class="btn">
+                <i class="btn btn-primary"></i> View Pet Information</a
               >
               <br />
-              <a href="cart.html" class="cart-btn"
-                ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+              <a href="cart.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart</a
               >
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <!-- end products -->
 
-        <div class="row pagination">
+    <!-- <div class="row pagination">
           <div class="col-lg-12 text-center">
             <div class="pagination-wrap">
               <ul>
@@ -294,9 +310,29 @@
               </ul>
             </div>
           </div>
-        </div>
-      </div>
+        </div> -->
+    <div class="col-lg-12">
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center mb-4">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo; Previous</span>
+            </a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">Next &raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
+
     <!-- end products -->
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -317,5 +353,6 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="./script/cart.js"></script>
   </body>
 </html>

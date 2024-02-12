@@ -18,6 +18,16 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
@@ -50,7 +60,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
-          <a href="index.html" class="nav-item nav-link active">Home</a>
+          <a href="index.html" class="nav-item nav-link">Home</a>
           <a href="about.html" class="nav-item nav-link">About</a>
           <!-- <a href="service.html" class="nav-item nav-link">Service</a> -->
           <!-- <a href="product.html" class="nav-item nav-link">Product</a> -->
@@ -63,7 +73,6 @@
               >Pages</a
             >
             <div class="dropdown-menu m-0">
-              <a href="price.html" class="dropdown-item">Pricing Plan</a>
               <a href="team.html" class="dropdown-item">The Team</a>
               <a href="testimonial.html" class="dropdown-item">Testimonial</a>
               <a href="blog.html" class="dropdown-item">Blog Grid</a>
@@ -73,7 +82,7 @@
           <div class="nav-item dropdown">
             <a
               href="shop.html"
-              class="nav-link dropdown-toggle"
+              class="nav-link dropdown-toggle active"
               data-bs-toggle="dropdown"
               >Shop</a
             >
@@ -166,7 +175,7 @@
     <div class="cart-section mt-150 mb-150">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 col-md-12">
+          <div class="col-lg-8 col-md-12 shopping-cart" id="shopping-cart">
             <div class="cart-table-wrap">
               <table class="cart-table">
                 <thead class="cart-table-head">
@@ -174,7 +183,9 @@
                     <th class="product-remove"></th>
                     <th class="product-image">Product Image</th>
                     <th class="product-name">Name</th>
-                    <th class="product-price">Price</th>
+                    <th id="cartAmount" class="product-price cartAmount">
+                      Price
+                    </th>
                     <!-- <th class="product-quantity">Quantity</th> -->
                     <!-- <th class="product-total">Total</th> -->
                   </tr>
